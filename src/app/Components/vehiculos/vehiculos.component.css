@@ -1,0 +1,7 @@
+.disponible {
+    color: green; /* Texto verde para DISPONIBLE */
+  }
+  
+  .no-disponible {
+    color: red; /* Texto rojo para NO DISPONIBLE */
+  }
