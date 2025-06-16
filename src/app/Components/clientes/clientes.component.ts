@@ -11,10 +11,15 @@ export class ClientesComponent implements OnInit{
   
   constructor(private BackendService: BackendService,){
   }
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
+  
+    ngOnInit() {
+
+    this.BackendService.getclientes().subscribe((data: any) => {
+      console.log("hasta aca llego", data);
+      this.clientes = data;
+    }, error => {
+      console.error('Error al obtener clientes:', error);
+    });
   }
-  
-  
   
 }

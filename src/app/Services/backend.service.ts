@@ -6,8 +6,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class BackendService {
   
-  
   private apiAuto = 'http://localhost:8080/getautos';
+  private apiCliente = 'http://localhost:8080/getclientes';
   
   
   //private apiCabania = 'http://localhost:8000/api/cabania'; // Reemplaza con la URL de tu API
@@ -18,9 +18,9 @@ export class BackendService {
     return this.http.get(this.apiAuto);
   }
   
-
-  //getAllCabanas() {
-   // return this.http.get(this.apiCabania);
-  //}
+  getclientes() {
+    return this.http.get(this.apiCliente);
+  }
+  
 
 }

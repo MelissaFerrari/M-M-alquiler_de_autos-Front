@@ -9,7 +9,7 @@ const APP_ROUTES: Routes = [
 
     { path: 'home', component: HomeComponent },
     { path: 'vehiculos', component: VehiculosComponent },
-    { path: 'adicional', component: ClientesComponent },
+    { path: 'clientes', component: ClientesComponent },
     { path: '**', pathMatch: 'full', redirectTo: 'home' }
 
 ]

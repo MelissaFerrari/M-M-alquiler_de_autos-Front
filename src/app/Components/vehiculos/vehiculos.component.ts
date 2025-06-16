@@ -9,8 +9,7 @@ import { BackendService } from 'src/app/Services/backend.service';
 export class VehiculosComponent implements OnInit{
   autos: any;
   
-  constructor(private BackendService: BackendService,
-    ){
+  constructor(private BackendService: BackendService,){
   }
   
   
