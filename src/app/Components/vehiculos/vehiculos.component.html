@@ -1,17 +1,24 @@
 
-<!-- cabanas.component.html -->
-<div class="row">
-  <div *ngFor="let auto of autos" class="col-md-4 mb-4">
-    <div class="card">
-      <img class="card-img-top" alt="Card image">
-      <div class="card-body">
-        <h4 class="card-title">funciona</h4>
-        <p class="card-text">funciona</p>
-        
-        <!-- Aplicar clases condicionalmente -->
-        
-        <!-- <a href="#" class="btn btn-primary" *ngIf="!cabania.alquilada">Reservar</a> -->
+<!-- vehiculos.component.html  <div class="card-columns">   -->
+<br><br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let auto of autos">
+      <div class="card">
+            <h1 class="card-title">{{ auto.dominio }}</h1>
+            <h4>Marca {{ auto.marca }}</h4>
+            <h4>Modelo {{ auto.modelo }}</h4>
+            <h4>{{ auto.kilometros }}km</h4>
+            <button
+              type="button"
+              class="btn"
+              [ngClass]="auto.alquilado ? 'btn-danger' : 'btn-info'">
+              {{ auto.alquilado ? 'Alquilado' : 'Libre' }}
+            </button>
       </div>
-    </div>
+    </div>   
   </div>
 </div>
+
+<br><br>
