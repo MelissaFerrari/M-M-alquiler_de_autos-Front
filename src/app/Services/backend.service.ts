@@ -8,6 +8,7 @@ export class BackendService {
   
   private apiAuto = 'http://localhost:8080/getautos';
   private apiCliente = 'http://localhost:8080/getclientes';
+  private apiReserva = 'http://localhost:8080/getreservas';
   
   
   //private apiCabania = 'http://localhost:8000/api/cabania'; // Reemplaza con la URL de tu API
@@ -20,6 +21,10 @@ export class BackendService {
   
   getclientes() {
     return this.http.get(this.apiCliente);
+  }
+
+  getreservas() {
+    return this.http.get(this.apiReserva);
   }
   
 

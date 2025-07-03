@@ -1,0 +1,19 @@
+<br><br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let reserva of reservas">
+      <div class="card">
+            <h1 class="card-title">ID {{ reserva.id }}</h1>
+            <h4>auto: {{ reserva.auto.dominio }}</h4>
+            <h4>cliente: {{ reserva.cliente.dni }}</h4>   
+            <h4>cliente: {{ reserva.cliente.nombreCompleto }}</h4>                      
+            <h5>desde: {{ reserva.fechaInicio }}</h5>
+            <h5>hasta: {{ reserva.fechaFin }}</h5>            
+      </div>
+      <br>
+    </div>   
+  </div>
+</div>
+
+<br><br>
