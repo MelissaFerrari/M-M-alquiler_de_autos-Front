@@ -2,24 +2,31 @@
 <!-- vehiculos.component.html  <div class="card-columns">   -->
 <br><br>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-4" *ngFor="let auto of autos">
-      <div class="card">
-            <h1 class="card-title">{{ auto.dominio }}</h1>
-            <h4>Marca {{ auto.marca }}</h4>
-            <h4>Modelo {{ auto.modelo }}</h4>
-            <h4>{{ auto.kilometros }}km</h4>
-            <button
-              type="button"
-              class="btn"
-              [ngClass]="auto.alquilado ? 'btn-danger' : 'btn-info'">
-              {{ auto.alquilado ? 'Alquilado' : 'Libre' }}
-            </button>
-      </div>
-      <br>
-    </div>   
-  </div>
+<div class="p-6">
+  <h2 class="text-2xl font-semibold mb-4">Gestión de Vehículos</h2>
+
+  <!-- Menú de navegación -->
+  <nav class="flex flex-col md:flex-row gap-4 mb-6">
+    <a class="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded text-center"
+      [routerLink]="['ver']"
+      routerLinkActive="bg-blue-200 font-semibold border border-blue-500">Ver autos</a>
+
+    <a class="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded text-center"
+      [routerLink]="['crear']"
+      routerLinkActive="bg-blue-200 font-semibold border border-blue-500">Crear auto</a>
+
+    <a class="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded text-center"
+      [routerLink]="['eliminar']"
+      routerLinkActive="bg-blue-200 font-semibold border border-blue-500">Eliminar auto</a>
+
+    <a class="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded text-center"
+      [routerLink]="['modificar']"
+      routerLinkActive="bg-blue-200 font-semibold border border-blue-500">Modificar auto</a>
+  </nav>
+
+  <!-- Aquí se cargan los subcomponentes -->
+  <router-outlet></router-outlet>
 </div>
+
 
 <br><br>
