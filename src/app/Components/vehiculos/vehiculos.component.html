@@ -7,22 +7,31 @@
 
   <!-- Menú de navegación -->
   <nav class="flex flex-col md:flex-row gap-4 mb-6">
-    <a class="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded text-center"
-      [routerLink]="['ver']"
-      routerLinkActive="bg-blue-200 font-semibold border border-blue-500">Ver autos</a>
+  <a class="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded text-center flex items-center justify-center gap-2"
+    [routerLink]="['ver']"
+    routerLinkActive="bg-blue-200 font-semibold border border-blue-500">
+    <i class="fas fa-eye"></i> Ver autos
+  </a>
 
-    <a class="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded text-center"
-      [routerLink]="['crear']"
-      routerLinkActive="bg-blue-200 font-semibold border border-blue-500">Crear auto</a>
+  <a class="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded text-center flex items-center justify-center gap-2"
+    [routerLink]="['crear']"
+    routerLinkActive="bg-blue-200 font-semibold border border-blue-500">
+    <i class="fas fa-plus"></i> Crear auto
+  </a>
 
-    <a class="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded text-center"
-      [routerLink]="['eliminar']"
-      routerLinkActive="bg-blue-200 font-semibold border border-blue-500">Eliminar auto</a>
+  <a class="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded text-center flex items-center justify-center gap-2"
+    [routerLink]="['eliminar']"
+    routerLinkActive="bg-blue-200 font-semibold border border-blue-500">
+    <i class="fas fa-trash-alt"></i> Eliminar auto
+  </a>
 
-    <a class="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded text-center"
-      [routerLink]="['modificar']"
-      routerLinkActive="bg-blue-200 font-semibold border border-blue-500">Modificar auto</a>
-  </nav>
+  <a class="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded text-center flex items-center justify-center gap-2"
+    [routerLink]="['modificar']"
+    routerLinkActive="bg-blue-200 font-semibold border border-blue-500">
+    <i class="fas fa-edit"></i> Modificar auto
+  </a>
+</nav>
+
 
   <!-- Aquí se cargan los subcomponentes -->
   <router-outlet></router-outlet>
