@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
+
 //Rutas
 
 import { APP_ROUTING } from './app.routes';
@@ -22,6 +23,8 @@ import { VerAutosComponent } from './Components/vehiculos/ver-autos/ver-autos.co
 import { CrearAutoComponent } from './Components/vehiculos/crear-auto/crear-auto.component';
 import { EliminarAutoComponent } from './Components/vehiculos/eliminar-auto/eliminar-auto.component';
 import { ModificarAutoComponent } from './Components/vehiculos/modificar-auto/modificar-auto.component';
+import { FormAutoComponent } from './Components/form-auto/form-auto.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -35,11 +38,14 @@ import { ModificarAutoComponent } from './Components/vehiculos/modificar-auto/mo
     VerAutosComponent,
     CrearAutoComponent,
     EliminarAutoComponent,
-    ModificarAutoComponent
+    ModificarAutoComponent,
+    FormAutoComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpClientModule,
+    
     APP_ROUTING
   ],
   providers: [],
