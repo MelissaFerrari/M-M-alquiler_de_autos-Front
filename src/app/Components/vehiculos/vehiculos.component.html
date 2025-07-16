@@ -1,41 +1,32 @@
-
-<!-- vehiculos.component.html  <div class="card-columns">   -->
 <br><br>
 
-<div class="p-6">
-  <h2 class="text-2xl font-semibold mb-4">Gestión de Vehículos</h2>
-
-  <!-- Menú de navegación -->
-  <nav class="flex flex-col md:flex-row gap-4 mb-6">
-  <a class="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded text-center flex items-center justify-center gap-2"
-    [routerLink]="['ver']"
-    routerLinkActive="bg-blue-200 font-semibold border border-blue-500">
-    <i class="fas fa-eye"></i> Ver autos
-  </a>
-
-  <a class="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded text-center flex items-center justify-center gap-2"
-    [routerLink]="['crear']"
-    routerLinkActive="bg-blue-200 font-semibold border border-blue-500">
-    <i class="fas fa-plus"></i> Agregar auto
-  </a>
-
-  <a class="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded text-center flex items-center justify-center gap-2"
-    [routerLink]="['eliminar']"
-    routerLinkActive="bg-blue-200 font-semibold border border-blue-500">
-    <i class="fas fa-trash-alt"></i> Eliminar auto
-  </a>
-
-  <a class="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded text-center flex items-center justify-center gap-2"
-    [routerLink]="['modificar']"
-    routerLinkActive="bg-blue-200 font-semibold border border-blue-500">
-    <i class="fas fa-edit"></i> Modificar auto
-  </a>
-</nav>
-
+<div class="container py-4">
+  <h2 class="mb-4 fw-bold">Gestión de Vehículos</h2>
+  <nav class="mb-4 d-flex flex-wrap gap-2">
+    <a class="btn btn-outline-primary d-flex align-items-center"
+       [routerLink]="['ver']"
+       routerLinkActive="active">
+      <i class="fa fa-eye me-1"></i> Ver autos
+    </a>
+    <a class="btn btn-outline-success d-flex align-items-center"
+       [routerLink]="['crear']"
+       routerLinkActive="active">
+      <i class="fa fa-plus me-1"></i> Agregar auto
+    </a>
+    <a class="btn btn-outline-danger d-flex align-items-center"
+       [routerLink]="['eliminar']"
+       routerLinkActive="active">
+      <i class="fa fa-trash me-1"></i> Eliminar auto
+    </a>
+    <a class="btn btn-outline-warning d-flex align-items-center"
+       [routerLink]="['modificar']"
+       routerLinkActive="active">
+      <i class="fa fa-edit me-1"></i> Modificar auto
+    </a>
+  </nav>
 
   <!-- Aquí se cargan los subcomponentes -->
   <router-outlet></router-outlet>
 </div>
-
 
 <br><br>

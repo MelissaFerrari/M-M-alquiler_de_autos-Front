@@ -1,23 +1,19 @@
-<br><br>
-
-<div class="container">
-  <div class="row">
+<div class="container py-4">
+  <div class="row g-4">
     <div class="col-md-4" *ngFor="let auto of autos">
-      <div class="card">
-            <h1 class="card-title">{{ auto.dominio }}</h1>
-            <h4>Marca {{ auto.marca }}</h4>
-            <h4>Modelo {{ auto.modelo }}</h4>
-            <h4>{{ auto.kilometros }}km</h4>
-            <button
-              type="button"
-              class="btn"
-              [ngClass]="auto.alquilado ? 'btn-danger' : 'btn-info'">
-              {{ auto.alquilado ? 'Alquilado' : 'Libre' }}
-            </button>
+      <div class="card shadow-sm rounded h-100">
+        <div class="card-body">
+          <h4 class="card-title fw-bold">{{ auto.dominio }}</h4>
+          <p class="mb-1"><strong>Marca:</strong> {{ auto.marca }}</p>
+          <p class="mb-1"><strong>Modelo:</strong> {{ auto.modelo }}</p>
+          <p class="mb-3"><strong>Kilometraje:</strong> {{ auto.kilometros }} km</p>
+          <span 
+            class="badge px-3 py-2 fs-6"
+            [ngClass]="auto.alquilado ? 'bg-danger' : 'bg-success'">
+            {{ auto.alquilado ? 'Alquilado' : 'Libre' }}
+          </span>
+        </div>
       </div>
-      <br>
-    </div>   
+    </div>
   </div>
 </div>
-
-<br><br>
