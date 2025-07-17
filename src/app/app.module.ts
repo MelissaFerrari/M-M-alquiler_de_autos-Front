@@ -24,6 +24,14 @@ import { CrearAutoComponent } from './Components/vehiculos/crear-auto/crear-auto
 import { EliminarAutoComponent } from './Components/vehiculos/eliminar-auto/eliminar-auto.component';
 import { ModificarAutoComponent } from './Components/vehiculos/modificar-auto/modificar-auto.component';
 import { FormsModule } from '@angular/forms';
+import { VerClientesComponent } from './Components/clientes/ver-clientes/ver-clientes.component';
+import { CrearClienteComponent } from './Components/clientes/crear-cliente/crear-cliente.component';
+import { EliminarClienteComponent } from './Components/clientes/eliminar-cliente/eliminar-cliente.component';
+import { ModificarClienteComponent } from './Components/clientes/modificar-cliente/modificar-cliente.component';
+import { VerReservasComponent } from './Components/reservas/ver-reservas/ver-reservas.component';
+import { CrearReservaComponent } from './Components/reservas/crear-reserva/crear-reserva.component';
+import { EliminarReservaComponent } from './Components/reservas/eliminar-reserva/eliminar-reserva.component';
+import { ModificarReservaComponent } from './Components/reservas/modificar-reserva/modificar-reserva.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +46,14 @@ import { FormsModule } from '@angular/forms';
     CrearAutoComponent,
     EliminarAutoComponent,
     ModificarAutoComponent,
+    VerClientesComponent,
+    CrearClienteComponent,
+    EliminarClienteComponent,
+    ModificarClienteComponent,
+    VerReservasComponent,
+    CrearReservaComponent,
+    EliminarReservaComponent,
+    ModificarReservaComponent,
   ],
   imports: [
     BrowserModule,

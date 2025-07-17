@@ -1,19 +1,32 @@
 <br><br>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-4" *ngFor="let reserva of reservas">
-      <div class="card">
-            <h1 class="card-title">ID {{ reserva.id }}</h1>
-            <h4>auto: {{ reserva.auto.dominio }}</h4>
-            <h4>cliente: {{ reserva.cliente.dni }}</h4>   
-            <h4>cliente: {{ reserva.cliente.nombreCompleto }}</h4>                      
-            <h5>desde: {{ reserva.fechaInicio }}</h5>
-            <h5>hasta: {{ reserva.fechaFin }}</h5>            
-      </div>
-      <br>
-    </div>   
-  </div>
+<div class="container py-4">
+  <h2 class="mb-4 fw-bold">Gestión de Reservas</h2>
+  <nav class="mb-4 d-flex flex-wrap gap-2">
+    <a class="btn btn-outline-primary d-flex align-items-center"
+       [routerLink]="['ver']"
+       routerLinkActive="active">
+      <i class="fa fa-eye me-1"></i> Ver reservas
+    </a>
+    <a class="btn btn-outline-success d-flex align-items-center"
+       [routerLink]="['crear']"
+       routerLinkActive="active">
+      <i class="fa fa-plus me-1"></i> Agregar reserva
+    </a>
+    <a class="btn btn-outline-danger d-flex align-items-center"
+       [routerLink]="['eliminar']"
+       routerLinkActive="active">
+      <i class="fa fa-trash me-1"></i> Eliminar reserva
+    </a>
+    <a class="btn btn-outline-warning d-flex align-items-center"
+       [routerLink]="['modificar']"
+       routerLinkActive="active">
+      <i class="fa fa-edit me-1"></i> Modificar reserva
+    </a>
+  </nav>
+
+  <!-- Aquí se cargan los subcomponentes -->
+  <router-outlet></router-outlet>
 </div>
 
 <br><br>

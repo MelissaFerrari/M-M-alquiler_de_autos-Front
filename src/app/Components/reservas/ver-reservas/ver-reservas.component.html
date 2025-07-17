@@ -1,0 +1,16 @@
+<div class="container py-4">
+  <div class="row g-4">
+    <div class="col-md-4" *ngFor="let reserva of reservas">
+      <div class="card shadow-sm rounded h-100">
+        <div class="card-body">
+          <h4 class="card-title fw-bold">ID {{ reserva.id }}</h4>
+          <p class="mb-1"><strong>Auto:</strong>{{ reserva.auto.dominio }}</p>
+          <p class="mb-1"><strong>Cliente DNI:</strong> {{ reserva.cliente.dni }}</p>
+          <p class="mb-3"><strong>Cliente Nombre:</strong> {{ reserva.cliente.nombreCompleto }}</p>
+          <p class="mb-3"><strong>Desde:</strong> {{ reserva.fechaInicio }}</p>
+          <p class="mb-3"><strong>Hasta:</strong>{{ reserva.fechaFin }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="container py-4">
+  <div class="row g-4">
+    <div class="col-md-4" *ngFor="let cliente of clientes">
+      <div class="card shadow-sm rounded h-100">
+        <div class="card-body">
+          <h4 class="card-title fw-bold">{{ cliente.dni }}</h4>
+          <p class="mb-1"><strong>Nombre completo:</strong> {{ cliente.nombreCompleto }}</p>
+          <p class="mb-1"><strong>Dirección:</strong> {{ cliente.direccion }}</p>
+          <p class="mb-3"><strong>Telefono:</strong> {{ cliente.telefono }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
