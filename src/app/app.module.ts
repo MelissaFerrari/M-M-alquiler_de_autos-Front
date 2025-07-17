@@ -23,7 +23,6 @@ import { VerAutosComponent } from './Components/vehiculos/ver-autos/ver-autos.co
 import { CrearAutoComponent } from './Components/vehiculos/crear-auto/crear-auto.component';
 import { EliminarAutoComponent } from './Components/vehiculos/eliminar-auto/eliminar-auto.component';
 import { ModificarAutoComponent } from './Components/vehiculos/modificar-auto/modificar-auto.component';
-import { FormAutoComponent } from './Components/form-auto/form-auto.component';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -39,7 +38,6 @@ import { FormsModule } from '@angular/forms';
     CrearAutoComponent,
     EliminarAutoComponent,
     ModificarAutoComponent,
-    FormAutoComponent
   ],
   imports: [
     BrowserModule,
