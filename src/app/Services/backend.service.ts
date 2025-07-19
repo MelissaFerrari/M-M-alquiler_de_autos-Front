@@ -26,6 +26,12 @@ export class BackendService {
   getreservas() {
     return this.http.get(this.apiReserva);
   }
-  
 
+ getAutoPorDominio(dominio: string) {
+  return this.http.get<any>(`http://localhost:8080/getauto?dominio=${dominio}`);
+}
+
+eliminarAuto(dominio: string) {
+  return this.http.delete(`http://localhost:8080/eliminarauto?dominio=${dominio}`, { responseType: 'text' });
+}
 }
