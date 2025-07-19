@@ -1,15 +1,15 @@
-<div class="container py-4">
-  <div class="row g-4">
-    <div class="col-md-4" *ngFor="let auto of autos">
-      <div class="card shadow-sm rounded h-100">
-        <div class="card-body">
-          <h4 class="card-title fw-bold">{{ auto.dominio }}</h4>
-          <p class="mb-1"><strong>Marca:</strong> {{ auto.marca }}</p>
-          <p class="mb-1"><strong>Modelo:</strong> {{ auto.modelo }}</p>
-          <p class="mb-3"><strong>Kilometraje:</strong> {{ auto.kilometros }} km</p>
+<div class="autos-container">
+  <div class="autos-row">
+    <div class="auto-col" *ngFor="let auto of autos">
+      <div class="auto-card">
+        <div class="auto-card-body">
+          <h4 class="auto-titulo">{{ auto.dominio }}</h4>
+          <p><strong>Marca:</strong> {{ auto.marca }}</p>
+          <p><strong>Modelo:</strong> {{ auto.modelo }}</p>
+          <p><strong>Kilometraje:</strong> {{ auto.kilometros }} km</p>
           <span 
-            class="badge px-3 py-2 fs-6"
-            [ngClass]="auto.alquilado ? 'bg-danger' : 'bg-success'">
+            class="auto-badge"
+            [ngClass]="auto.alquilado ? 'bg-danger text-white' : 'bg-success text-white'">
             {{ auto.alquilado ? 'Alquilado' : 'Libre' }}
           </span>
         </div>

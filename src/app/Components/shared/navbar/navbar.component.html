@@ -1,37 +1,30 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
   <div class="container-fluid">
 
-    <!-- Logo con enlace al componente 'home' -->
-<a class="navbar-brand logo-home" [routerLink]="['/home']" title="Ir al inicio">
-  <img src="assets/Fotos/Home-2.gif" alt="Agencia M&M" class="logo-img">
-</a>
+    <!-- Logo -->
+    <a class="navbar-brand logo-home" [routerLink]="['/home']" title="Ir al inicio">
+      <img src="assets/Fotos/Home-2.gif" alt="Agencia M&M" class="logo-img">
+    </a>
 
-
-    <!-- Botón para colapsar en pantalla chica -->
+    <!-- Botón responsive -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <!-- Ítems de navegación -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <!-- Ítems -->
+    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+      <ul class="navbar-nav d-flex align-items-center gap-5">
         <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" [routerLink]="['/vehiculos']">Vehículos</a>
+          <a class="nav-link custom-link" [routerLink]="['/vehiculos']">Vehículos</a>
         </li>
         <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" [routerLink]="['/clientes']">Clientes</a>
+          <a class="nav-link custom-link" [routerLink]="['/clientes']">Clientes</a>
         </li>
         <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" [routerLink]="['/reservas']">Reservas</a>
+          <a class="nav-link custom-link" [routerLink]="['/reservas']">Reservas</a>
         </li>
       </ul>
-
-      <!-- Buscador -->
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Buscar</button>
-      </form>
     </div>
   </div>
 </nav>

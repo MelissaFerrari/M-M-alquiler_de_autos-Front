@@ -1,3 +1,7 @@
 .mt-4 p-5 bg-primary text-white rounded {
     background-color: aquamarine;
 }
+
+body {
+  padding-top: 70px;
+}

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "cabania": {
+    "AgenciaMyM": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/cabania",
+            "outputPath": "dist/AgenciaMyM",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -21,7 +21,6 @@
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
-              "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
@@ -60,10 +59,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "cabania:build:production"
+              "browserTarget": "AgenciaMyM:build:production"
             },
             "development": {
-              "browserTarget": "cabania:build:development"
+              "browserTarget": "AgenciaMyM:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +70,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "cabania:build"
+            "browserTarget": "AgenciaMyM:build"
           }
         },
         "test": {

@@ -1,0 +1,65 @@
+.titulo-clientes {
+  font-weight: bold;
+  font-size: 1.8rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.nav-clientes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-btn i {
+  margin-right: 0.5rem;
+}
+
+.nav-btn:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-ver {
+  background-color: #e3f2fd;
+  border-color: #2196f3;
+  color: #0d47a1;
+}
+
+.btn-agregar {
+  background-color: #e8f5e9;
+  border-color: #4caf50;
+  color: #1b5e20;
+}
+
+.btn-eliminar {
+  background-color: #ffebee;
+  border-color: #f44336;
+  color: #b71c1c;
+}
+
+.btn-modificar {
+  background-color: #fff3e0;
+  border-color: #ff9800;
+  color: #e65100;
+}
+
+/* Estilo para el botón activo */
+.nav-btn.active {
+  border-bottom: 3px solid #000;
+  font-weight: bold;
+}
