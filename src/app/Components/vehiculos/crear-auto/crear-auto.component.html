@@ -1,25 +1,47 @@
 <div class="container mt-4">
   <h3>Agregar Auto</h3>
 
-  <form (ngSubmit)="guardarAuto()">
+  <!-- Mensaje de éxito -->
+  <div *ngIf="mensajeExito" class="alert alert-success">
+    {{ mensajeExito }}
+  </div>
+
+  <!-- Mensaje de error -->
+  <div *ngIf="mensajeError" class="alert alert-danger">
+    {{ mensajeError }}
+  </div>
+
+  <form #autoForm="ngForm" (ngSubmit)="guardarAuto(autoForm)" novalidate>
     <div class="form-group mb-2">
       <label>Dominio:</label>
-      <input [(ngModel)]="auto.dominio" name="dominio" class="form-control" required>
+      <input [(ngModel)]="auto.dominio" name="dominio" class="form-control" required pattern="^[A-Z]{3}[0-9]{3}$">
+      <div *ngIf="autoForm.submitted && !autoForm.controls['dominio']?.valid" class="text-danger">
+        El dominio debe tener 3 letras mayúsculas seguidas de 3 números (ej: ABC123).
+      </div>
     </div>
 
     <div class="form-group mb-2">
       <label>Marca:</label>
       <input [(ngModel)]="auto.marca" name="marca" class="form-control" required>
+      <div *ngIf="autoForm.submitted && !autoForm.controls['marca']?.valid" class="text-danger">
+        La marca es obligatoria.
+      </div>
     </div>
 
     <div class="form-group mb-2">
       <label>Modelo:</label>
       <input [(ngModel)]="auto.modelo" name="modelo" class="form-control" required>
+      <div *ngIf="autoForm.submitted && !autoForm.controls['modelo']?.valid" class="text-danger">
+        El modelo es obligatorio.
+      </div>
     </div>
 
     <div class="form-group mb-2">
       <label>Kilómetros:</label>
-      <input [(ngModel)]="auto.kilometros" name="kilometros" class="form-control" required>
+      <input [(ngModel)]="auto.kilometros" name="kilometros" class="form-control" type="number" required min="0">
+      <div *ngIf="autoForm.submitted && !autoForm.controls['kilometros']?.valid" class="text-danger">
+        Los kilómetros deben ser un número mayor o igual a cero.
+      </div>
     </div>
 
     <button type="submit" class="btn btn-primary">Agregar Auto</button>

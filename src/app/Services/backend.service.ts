@@ -11,9 +11,8 @@ export class BackendService {
   private apiReserva = 'http://localhost:8080/getreservas';
   
   
-  //private apiCabania = 'http://localhost:8000/api/cabania'; // Reemplaza con la URL de tu API
 
-  constructor(private http: HttpClient) {}
+constructor(private http: HttpClient) {}
 
  getautos() {
     return this.http.get(this.apiAuto);
