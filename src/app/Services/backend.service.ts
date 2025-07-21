@@ -33,4 +33,9 @@ constructor(private http: HttpClient) {}
 eliminarAuto(dominio: string) {
   return this.http.delete(`http://localhost:8080/eliminarauto?dominio=${dominio}`, { responseType: 'text' });
 }
+
+eliminarCliente(dni: string) {
+  return this.http.delete(`http://localhost:8080/eliminarcliente?dni=${dni}`, { responseType: 'text' });
+}
+
 }

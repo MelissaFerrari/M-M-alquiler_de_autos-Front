@@ -1,1 +1,16 @@
-<p>eliminar-cliente works!</p>
+<div class="container mt-5">
+  <h2 class="mb-4">Eliminar Cliente</h2>
+  
+  <form (ngSubmit)="eliminarCliente()">
+    <div class="form-group mb-3">
+      <label for="dni">Ingrese el DNI del cliente a eliminar (8 dígitos):</label>
+      <input type="text" id="dni" class="form-control" [(ngModel)]="dni" name="dni" required pattern="\\d{8}" maxlength="8" />
+    </div>
+
+    <button type="submit" class="btn btn-danger">Eliminar Cliente</button>
+  </form>
+
+  <div *ngIf="mensaje" class="alert mt-4" [ngClass]="{'alert-success': exito, 'alert-danger': !exito}">
+    {{ mensaje }}
+  </div>
+</div>
