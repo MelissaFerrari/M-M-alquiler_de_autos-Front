@@ -1,1 +1,39 @@
-<p>modificar-cliente works!</p>
+<div class="container mt-4">
+  <h3>Modificar Cliente</h3>
+
+  <form (ngSubmit)="modificarCliente()">
+    <!-- DNI a buscar -->
+    <div class="form-group mb-2">
+      <label>DNI del cliente:</label>
+      <input [(ngModel)]="dni" name="dni" class="form-control" required>
+    </div>
+
+    <!-- Atributo a modificar -->
+    <div class="form-group mb-2">
+      <label>Atributo a modificar:</label>
+      <select [(ngModel)]="atributo" name="atributo" class="form-control" required>
+        <option value="" disabled selected>Seleccioná un campo</option>
+        <option value="nombreCompleto">Nombre completo</option>
+        <option value="direccion">Dirección</option>
+        <option value="telefono">Teléfono</option>
+      </select>
+    </div>
+
+    <!-- Nuevo valor para ese atributo -->
+    <div class="form-group mb-2">
+      <label>Nuevo valor:</label>
+      <input [(ngModel)]="nuevoValor" name="nuevoValor" class="form-control" required>
+    </div>
+
+    <!-- Mensaje de éxito o error -->
+    <div *ngIf="mensaje" class="alert" [ngClass]="{
+      'alert-danger': error,
+      'alert-success': !error
+    }">
+      {{ mensaje }}
+    </div>
+
+    <!-- Botón -->
+    <button type="submit" class="btn btn-primary">Modificar Cliente</button>
+  </form>
+</div>

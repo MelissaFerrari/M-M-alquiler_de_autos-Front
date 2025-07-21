@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs'
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,13 @@ constructor(private http: HttpClient) {}
     return this.http.get(this.apiCliente);
   }
 
+  modificarCliente(dni: string, campo: string, nuevoValor: string): Observable<any> {
+  return this.http.patch(`http://localhost:8080/clientes/${dni}`, {
+   [campo]: nuevoValor
+  });
+  }
+
+  
   getreservas() {
     return this.http.get(this.apiReserva);
   }
