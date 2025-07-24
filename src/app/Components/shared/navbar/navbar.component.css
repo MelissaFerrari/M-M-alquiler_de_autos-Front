@@ -1,6 +1,8 @@
 .logo-img {
   width: 80px;
   height: 80px;
+  margin-left: 30px;  
+  margin-top: 5px;  
   border-radius: 50%;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -20,11 +22,12 @@
 /* Centrado vertical y espaciado */
 .navbar-nav {
   height: 100%;
+  margin-left: -60px; 
 }
 
 /* Estilo personalizado de los links */
 .custom-link {
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   font-weight: 500;
   color: #333;
   position: relative;
@@ -63,3 +66,6 @@
   width: 100%;
 }
 
+.navbar-nav {
+  margin-left: -135px; /* Mover el texto a la izquierda */
+}

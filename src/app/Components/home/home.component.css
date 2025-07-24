@@ -4,4 +4,40 @@
 
 body {
   padding-top: 70px;
+  font-family: 'Poppins', sans-serif;
 }
+
+p{
+  font-family: 'centaur-regular';
+  font-size: 1.5rem;
+  color: #333;
+  line-height: 1.6;
+}
+.presentacion-container {
+  margin-top: 3rem;
+  padding: 2rem;
+  margin-bottom: 1rem;
+  background-color: #ffff;
+  text-align: center;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  color: #000;
+  font-family: 'Centaur-regular', serif;
+}
+
+.titulo {
+  color: #4285F4;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Mejoras para las flechas del carrusel */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: brightness(100%) contrast(250%);
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  top: 40%;
+  transform: translateY(-50%);
+}
+

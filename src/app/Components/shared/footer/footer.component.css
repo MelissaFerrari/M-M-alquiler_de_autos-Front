@@ -1,0 +1,75 @@
+footer {
+  background-color: #929fba;
+  color: white;
+  padding-top: 2rem;
+}
+
+.footer .row {
+  display: flex;
+  justify-content: space-evenly; /* Distribuye columnas con igual espacio entre ellas */
+  flex-wrap: wrap;
+  text-align: left;
+}
+
+.footer .col {
+  flex: 1;
+  max-width: 220px; /* Limita el ancho máximo de cada columna */
+  margin: 0 1rem;
+}
+
+/* Títulos centrados */
+.titulo-footer {
+  text-align: left;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+/* Texto de párrafos y enlaces */
+.footer p,
+.footer a {
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  margin: 0.5rem 0;
+  text-decoration: none;
+}
+
+.footer i {
+  margin-right: 0.5rem;
+}
+
+/* Línea divisoria */
+.footer hr {
+  background-color: white;
+  height: 1px;
+  opacity: 0.2;
+  border: none;
+  margin: 1rem 0;
+}
+
+/* Pie inferior */
+.footer-bottom {
+  text-align: center;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  font-size: 0.9rem;
+}
+
+.footer-bottom a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer .row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer .col {
+    max-width: 90%;
+    margin-bottom: 1.5rem;
+  }
+}
