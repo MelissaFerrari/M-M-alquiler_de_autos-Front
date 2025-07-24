@@ -32,6 +32,7 @@ import { VerReservasComponent } from './Components/reservas/ver-reservas/ver-res
 import { CrearReservaComponent } from './Components/reservas/crear-reserva/crear-reserva.component';
 import { EliminarReservaComponent } from './Components/reservas/eliminar-reserva/eliminar-reserva.component';
 import { ModificarReservaComponent } from './Components/reservas/modificar-reserva/modificar-reserva.component';
+import { ContactoComponent } from './Components/contacto/contacto.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { ModificarReservaComponent } from './Components/reservas/modificar-reser
     CrearReservaComponent,
     EliminarReservaComponent,
     ModificarReservaComponent,
+    ContactoComponent,
   ],
   imports: [
     BrowserModule,

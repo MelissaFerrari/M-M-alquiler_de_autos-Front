@@ -1,4 +1,4 @@
-import { RouterModule, Routes } from "@angular/router";
+import { RouterModule, Routes, ExtraOptions } from "@angular/router";
 
 import { HomeComponent } from "./Components/home/home.component";
 
@@ -20,9 +20,9 @@ import { CrearReservaComponent } from './Components/reservas/crear-reserva/crear
 import { EliminarReservaComponent } from './Components/reservas/eliminar-reserva/eliminar-reserva.component';
 import { ModificarReservaComponent } from './Components/reservas/modificar-reserva/modificar-reserva.component';
 
+import { ContactoComponent } from "./Components/contacto/contacto.component";
 
 const APP_ROUTES: Routes = [
-
     { path: 'home', component: HomeComponent },
     { path: 'vehiculos', component: VehiculosComponent,
         children: [
@@ -41,7 +41,7 @@ const APP_ROUTES: Routes = [
             { path: 'modificar', component: ModificarClienteComponent },
             { path: '', redirectTo: 'ver', pathMatch: 'full' }
         ]
-     },
+    },
     { path: 'reservas', component: ReservasComponent,
         children: [
             { path: 'ver', component: VerReservasComponent },
@@ -49,10 +49,15 @@ const APP_ROUTES: Routes = [
             { path: 'eliminar', component: EliminarReservaComponent },
             { path: 'modificar', component: ModificarReservaComponent },
             { path: '', redirectTo: 'ver', pathMatch: 'full' }
-        ]        
-    },    
+        ]
+    },
+    { path: 'contacto', component: ContactoComponent },
     { path: '**', pathMatch: 'full', redirectTo: 'home' }
+];
 
-]
+const routerOptions: ExtraOptions = {
+    anchorScrolling: 'enabled',  // ✅ habilita el scroll hacia fragmentos (como #top-contacto)
+    scrollPositionRestoration: 'enabled'  // opcional: vuelve arriba en cada navegación
+};
 
-export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES);
+export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES, routerOptions);
