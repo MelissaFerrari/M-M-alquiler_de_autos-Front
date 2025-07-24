@@ -38,6 +38,13 @@ constructor(private http: HttpClient) {}
   return this.http.get<any>(`http://localhost:8080/getauto?dominio=${dominio}`);
 }
 
+  modificarAuto(dominio: string, campo: string, nuevoValor: string): Observable<any> {
+  return this.http.patch(`http://localhost:8080/autos/${dominio}`, {
+    [campo]: nuevoValor
+  });
+}
+
+
 eliminarAuto(dominio: string) {
   return this.http.delete(`http://localhost:8080/eliminarauto?dominio=${dominio}`, { responseType: 'text' });
 }
