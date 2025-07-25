@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { BackendService } from 'src/app/Services/backend.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-modificar-auto',
   templateUrl: './modificar-auto.component.html',
@@ -14,7 +14,7 @@ export class ModificarAutoComponent {
   mensaje: string = '';
   error: boolean = false;
 
-  constructor(private BackendService: BackendService) {}
+  constructor(private BackendService: BackendService, private router: Router ) {}
 
   modificarAuto() {
     if (!this.dominio || !this.atributo || !this.nuevoValor) {
@@ -34,6 +34,7 @@ export class ModificarAutoComponent {
         next: (res: any) => {
           console.log('Respuesta:', res);
           this.mensaje = 'Auto modificado correctamente.';
+          setTimeout(() => this.router.navigate(['/home']), 2000);
           this.error = false;
         },
         error: (err: any) => {

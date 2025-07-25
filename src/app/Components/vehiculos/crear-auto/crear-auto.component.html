@@ -1,16 +1,6 @@
 <div class="container mt-4">
   <h3>Agregar Auto</h3>
 
-  <!-- Mensaje de éxito -->
-  <div *ngIf="mensajeExito" class="alert alert-success">
-    {{ mensajeExito }}
-  </div>
-
-  <!-- Mensaje de error -->
-  <div *ngIf="mensajeError" class="alert alert-danger">
-    {{ mensajeError }}
-  </div>
-
   <form #autoForm="ngForm" (ngSubmit)="guardarAuto(autoForm)" novalidate>
     <div class="form-group mb-2">
       <label>Dominio:</label>
@@ -45,5 +35,14 @@
     </div>
 
     <button type="submit" class="btn btn-primary">Agregar Auto</button>
+
+    <!-- Mensajes debajo del botón -->
+    <div *ngIf="mensajeExito" class="alert alert-success mt-3">
+      {{ mensajeExito }}
+    </div>
+
+    <div *ngIf="mensajeError" class="alert alert-danger mt-3">
+      {{ mensajeError }}
+    </div>
   </form>
 </div>

@@ -1,19 +1,16 @@
 <div class="container mt-4">
   <h3>Eliminar Auto</h3>
-
   <form (ngSubmit)="eliminarAuto()">
     <div class="form-group mb-2">
       <label>Dominio (formato AAA111):</label>
       <input [(ngModel)]="dominio" name="dominio" class="form-control" required>
     </div>
-
-    <div *ngIf="mensaje" class="alert" [ngClass]="{
+    <button type="submit" class="btn btn-danger">Eliminar Auto</button>
+    <div *ngIf="mensaje" class="alert alert-success mt-3" [ngClass]="{
       'alert-danger': error,
       'alert-success': !error
     }">
       {{ mensaje }}
     </div>
-
-    <button type="submit" class="btn btn-danger">Eliminar Auto</button>
   </form>
 </div>

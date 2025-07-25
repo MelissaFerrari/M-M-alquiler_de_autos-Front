@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router'; 
 
 @Component({
   selector: 'app-crear-autos',
@@ -20,7 +21,10 @@ export class CrearAutoComponent {
   mensajeExito: string = '';
   mensajeError: string = '';
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router // 👈 Inyectado
+  ) {}
 
   guardarAuto(form: NgForm) {
     this.mensajeExito = '';
@@ -37,6 +41,10 @@ export class CrearAutoComponent {
           this.mensajeExito = 'Auto agregado correctamente.';
           this.auto = { dominio: '', marca: '', modelo: '', kilometros: '', alquilado: false };
           form.resetForm();
+
+          setTimeout(() => {
+            this.router.navigate(['/home']);
+          }, 4000); // 👈 Espera 4 segundos antes de redirigir
         },
         error: err => {
           console.error(err);
