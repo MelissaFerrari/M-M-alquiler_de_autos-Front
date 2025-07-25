@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router'; 
 
 @Component({
   selector: 'app-crear-cliente',
@@ -19,7 +20,7 @@ export class CrearClienteComponent {
   mensajeExito: string = '';
   mensajeError: string = '';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router ) {}
 
   guardarCliente(form: NgForm) {
     this.mensajeExito = '';
@@ -41,6 +42,9 @@ export class CrearClienteComponent {
         this.mensajeExito = 'Cliente agregado correctamente.';
         this.nuevoCliente = { dni: '', nombreCompleto: '', direccion: '', telefono: '' };
         form.resetForm();
+        setTimeout(() => {
+            this.router.navigate(['/home']);
+          }, 4000); 
       },
       error: err => {
         console.error(err);

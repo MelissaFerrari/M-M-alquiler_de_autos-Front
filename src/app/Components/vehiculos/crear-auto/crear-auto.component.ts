@@ -23,7 +23,7 @@ export class CrearAutoComponent {
 
   constructor(
     private http: HttpClient,
-    private router: Router // 👈 Inyectado
+    private router: Router 
   ) {}
 
   guardarAuto(form: NgForm) {
