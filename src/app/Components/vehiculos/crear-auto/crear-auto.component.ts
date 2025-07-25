@@ -44,7 +44,7 @@ export class CrearAutoComponent {
 
           setTimeout(() => {
             this.router.navigate(['/home']);
-          }, 4000); // 👈 Espera 4 segundos antes de redirigir
+          }, 4000); 
         },
         error: err => {
           console.error(err);

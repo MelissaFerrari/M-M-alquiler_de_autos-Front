@@ -26,12 +26,12 @@ export class EliminarClienteComponent {
       next: (respuesta: any) => {
         this.mensaje = 'Cliente eliminado correctamente.';
         this.exito = true;
-        setTimeout(() => this.router.navigate(['/home']), 2000);
+        setTimeout(() => this.router.navigate(['/home']), 4000);
       },
       error: (error) => {
         this.mensaje = 'No se encontró un cliente con ese DNI.';
         this.exito = false;
-        setTimeout(() => this.router.navigate(['/home']), 2000);
+        setTimeout(() => this.router.navigate(['/home']), 4000);
       }
     });
   }
