@@ -1,13 +1,11 @@
 <div class="container mt-4">
   <h3>Modificar Auto</h3>
-
   <form (ngSubmit)="modificarAuto()">
     <!-- Dominio a buscar -->
     <div class="form-group mb-2">
       <label>Patente del auto:</label>
       <input [(ngModel)]="dominio" name="dominio" class="form-control" required>
     </div>
-
     <!-- Atributo a modificar -->
     <div class="form-group mb-2">
       <label>Atributo a modificar:</label>
@@ -18,22 +16,19 @@
         <option value="kilometros">Kilómetros</option>
       </select>
     </div>
-
-    <!-- Nuevo valor para ese atributo -->
+   <!-- Nuevo valor para ese atributo -->
     <div class="form-group mb-2">
       <label>Nuevo valor:</label>
       <input [(ngModel)]="nuevoValor" name="nuevoValor" class="form-control" required>
     </div>
-
+    <!-- Botón -->
+    <button type="submit" class="btn btn-warning">Modificar Auto</button>
     <!-- Mensaje de éxito o error -->
-    <div *ngIf="mensaje" class="alert" [ngClass]="{
+    <div *ngIf="mensaje" class="alert alert-success mt-3" [ngClass]="{
       'alert-danger': error,
       'alert-success': !error
     }">
       {{ mensaje }}
     </div>
-
-    <!-- Botón -->
-    <button type="submit" class="btn btn-warning">Modificar Auto</button>
   </form>
 </div>
