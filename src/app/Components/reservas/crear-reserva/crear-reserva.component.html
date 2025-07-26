@@ -14,6 +14,9 @@
         class="form-control"
         required
       >
+      <div *ngIf="errorClienteNoEncontrado" class="text-danger mt-1">
+        {{ errorClienteNoEncontrado }}
+      </div>
     </div>
 
     <!-- Nombre del cliente (autocompletado, solo lectura) -->
@@ -39,6 +42,9 @@
         class="form-control"
         required
       >
+      <div *ngIf="errorAutoNoEncontrado" class="text-danger mt-1">
+        {{ errorAutoNoEncontrado }}
+      </div>
     </div>
 
     <!-- Auto (marca y modelo, autocompletado, solo lectura) -->

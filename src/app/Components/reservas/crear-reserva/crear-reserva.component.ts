@@ -17,6 +17,8 @@ export class CrearReservaComponent implements OnInit {
 
   mensajeError: string = '';
   mensajeExito: string = '';
+  errorClienteNoEncontrado: string = '';
+  errorAutoNoEncontrado: string = '';
 
   clientes: any[] = [];
   autos: any[] = [];
@@ -37,10 +39,10 @@ export class CrearReservaComponent implements OnInit {
     const cliente = this.clientes.find(c => c.dni === this.dniCliente);
     if (cliente) {
       this.nombreCliente = cliente.nombreCompleto;
-      this.mensajeError = '';
+      this.errorClienteNoEncontrado = '';
     } else {
       this.nombreCliente = '';
-      this.mensajeError = 'Cliente no encontrado.';
+      this.errorClienteNoEncontrado = 'Cliente no encontrado.';
     }
   }
 
@@ -48,10 +50,10 @@ export class CrearReservaComponent implements OnInit {
     const auto = this.autos.find(a => a.dominio === this.dominioAuto.toUpperCase());
     if (auto) {
       this.nombreAuto = auto.marca + ' ' + auto.modelo;
-      this.mensajeError = '';
+      this.errorAutoNoEncontrado = '';
     } else {
       this.nombreAuto = '';
-      this.mensajeError = 'Auto no encontrado.';
+      this.errorAutoNoEncontrado = 'Auto no encontrado.';
     }
   }
 
@@ -59,7 +61,6 @@ export class CrearReservaComponent implements OnInit {
     this.mensajeError = '';
     this.mensajeExito = '';
 
-    // Validar fechas
     const inicio = new Date(this.fechaInicio);
     const fin = new Date(this.fechaFin);
 
@@ -73,7 +74,6 @@ export class CrearReservaComponent implements OnInit {
       return;
     }
 
-    // Validar conflicto de reservas
     this.http.get<any[]>('http://localhost:8080/getreservas').subscribe(reservas => {
       const conflicto = reservas.some(r =>
         r.dominioAuto === this.dominioAuto.toUpperCase() &&
@@ -87,15 +87,13 @@ export class CrearReservaComponent implements OnInit {
         return;
       }
 
-      // Crear JSON para enviar al backend
       const nuevaReserva = {
-        cliente: { dni: this.dniCliente },  // coincide con tu entidad en backend
+        cliente: { dni: this.dniCliente },
         auto: { dominio: this.dominioAuto.toUpperCase() },
         fechaInicio: this.fechaInicio,
         fechaFin: this.fechaFin
       };
 
-      // Enviar al backend
       this.http.post('http://localhost:8080/agregarreserva', nuevaReserva).subscribe({
         next: () => {
           this.mensajeExito = 'Reserva registrada con éxito.';
