@@ -1,1 +1,16 @@
-<p>eliminar-reserva works!</p>
+<div class="container mt-5">
+  <h2 class="mb-4">Eliminar Reserva</h2>
+  
+<form (ngSubmit)="eliminarReserva()">
+    <div class="form-group mb-3">
+      <label for="id">Ingrese el ID de la reserva a eliminar:</label>
+      <input [(ngModel)]="idReserva" name="idReserva" type="number" class="form-control" required>
+    </div>
+
+    <button type="submit" class="btn btn-danger">Eliminar Reserva</button>
+  </form>
+
+  <div *ngIf="mensaje" class="alert mt-4" [ngClass]="{ 'text-success': exito, 'text-danger': !exito }">
+    {{ mensaje }}
+  </div>
+</div>
