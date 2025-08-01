@@ -63,6 +63,7 @@ export class CrearReservaComponent implements OnInit {
 
     const inicio = new Date(this.fechaInicio);
     const fin = new Date(this.fechaFin);
+    const hoy = new Date();
 
     if (isNaN(inicio.getTime()) || isNaN(fin.getTime())) {
       this.mensajeError = 'Las fechas ingresadas no son válidas.';
@@ -71,6 +72,10 @@ export class CrearReservaComponent implements OnInit {
 
     if (inicio >= fin) {
       this.mensajeError = 'La fecha de inicio debe ser anterior a la fecha de fin.';
+      return;
+    }
+    if (inicio < hoy) {
+      this.mensajeError = 'La fecha de inicio no puede ser anterior a la fecha actual.';
       return;
     }
 
