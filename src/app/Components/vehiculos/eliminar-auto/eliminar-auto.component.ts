@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { BackendService } from 'src/app/Services/backend.service'; // Asegurate que el servicio está en esa ruta
+import { BackendService } from 'src/app/Services/backend.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -24,36 +24,45 @@ export class EliminarAutoComponent {
     }
 
     this.autoService.getAutoPorDominio(this.dominio).subscribe({
-  next: auto => {
-    if (!auto) {
-      this.mensaje = 'El dominio ingresado no se encuentra registrado en el sistema.';
-      this.error = true;
-      return;
-    }
+      next: auto => {
+        if (!auto) {
+          this.mensaje = 'El dominio ingresado no se encuentra registrado en el sistema.';
+          this.error = true;
+          return;
+        }
 
-    // Si querés agregar la verificación de reserva, va acá.
-
-    this.autoService.eliminarAuto(this.dominio).subscribe({
-      next: () => {
-        this.mensaje = 'Auto eliminado correctamente.';
-        this.error = false;
-        setTimeout(() => {
-          this.router.navigate(['/']);
-        }, 2000);
+        this.autoService.estaDominioReservado(this.dominio).subscribe({
+          next: reservado => {
+            if (reservado) {
+              this.mensaje = 'ATENCIÓN: el dominio ingresado está registrado en una reserva.';
+              this.error = true;
+            } else {
+              this.autoService.eliminarAuto(this.dominio).subscribe({
+                next: () => {
+                  this.mensaje = 'Auto eliminado correctamente.';
+                  this.error = false;
+                  setTimeout(() => this.router.navigate(['/']), 2000);
+                },
+                error: err => {
+                  console.log('Error en eliminación:', err);
+                  this.mensaje = 'Ocurrió un error al intentar eliminar el auto.';
+                  this.error = true;
+                }
+              });
+            }
+          },
+          error: err => {
+            console.log('Error al verificar reserva:', err);
+            this.mensaje = 'Ocurrió un error al verificar las reservas.';
+            this.error = true;
+          }
+        });
       },
       error: err => {
-        console.log('Error en eliminación:', err);
-        this.mensaje = 'Ocurrió un error al intentar eliminar el auto.';
+        console.log('Error al buscar auto:', err);
+        this.mensaje = 'Error al buscar el auto.';
         this.error = true;
       }
     });
-  },
-  error: err => {
-    console.log('Error al buscar auto:', err);
-    this.mensaje = 'Error al buscar el auto.';
-    this.error = true;
-  }
-});
-
   }
 }

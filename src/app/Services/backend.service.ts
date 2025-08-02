@@ -37,6 +37,10 @@ constructor(private http: HttpClient) {}
 eliminarReserva(id: number): Observable<any> {
   return this.http.delete(`http://localhost:8080/eliminarreserva?id=${id}`, { responseType: 'text' });
 }
+estaDominioReservado(dominio: string) {
+  return this.http.get<boolean>(`http://localhost:8080/dominio-reservado?dominio=${dominio}`);
+}
+
 
 
 
