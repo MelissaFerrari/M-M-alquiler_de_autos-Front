@@ -3,6 +3,12 @@
     <div class="auto-col" *ngFor="let auto of autos">
       <div class="auto-card">
         <div class="auto-card-body">
+
+          <!-- Imagen del auto -->
+          <div class="imagen-auto-container" *ngIf="auto.foto">
+            <img [src]="'http://localhost:8080/uploads/' + auto.foto" alt="Foto del auto" class="imagen-auto">
+          </div>
+
           <h4 class="auto-titulo">{{ auto.dominio }}</h4>
           <p><strong>Marca:</strong> {{ auto.marca }}</p>
           <p><strong>Modelo:</strong> {{ auto.modelo }}</p>

@@ -42,3 +42,16 @@
   margin-top: 0.5rem;
   display: inline-block;
 }
+
+.imagen-auto-container {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.imagen-auto {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
