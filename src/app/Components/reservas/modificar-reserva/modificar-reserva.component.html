@@ -1,1 +1,39 @@
-<p>modificar-reserva works!</p>
+<div class="container mt-4">
+  <h3>Modificar Reserva</h3>
+  <form (ngSubmit)="modificarReserva()">
+    <!-- ID de la reserva a buscar -->
+    <div class="form-group mb-2">
+      <label>ID de la reserva:</label>
+      <input [(ngModel)]="idReserva" name="idReserva" class="form-control" required>
+    </div>
+
+    <!-- Atributo a modificar -->
+    <div class="form-group mb-2">
+      <label>Atributo a modificar:</label>
+      <select [(ngModel)]="atributo" name="atributo" class="form-control" required>
+        <option value="" disabled selected>Seleccioná un campo</option>
+        <option value="dni_cliente">DNI del Cliente</option>
+        <option value="dominio_auto">Dominio del Auto</option>
+        <option value="fecha_inicio">Fecha de Inicio</option>
+        <option value="fecha_fin">Fecha de Fin</option>
+      </select>
+    </div>
+
+    <!-- Nuevo valor para ese atributo -->
+    <div class="form-group mb-2">
+      <label>Nuevo valor:</label>
+      <input [(ngModel)]="nuevoValor" name="nuevoValor" class="form-control" required>
+    </div>
+
+    <!-- Botón -->
+    <button type="submit" class="btn btn-warning">Modificar Reserva</button>
+
+    <!-- Mensaje de éxito o error -->
+    <div *ngIf="mensaje" class="alert mt-3" [ngClass]="{
+      'alert-danger': error,
+      'alert-success': !error
+    }">
+      {{ mensaje }}
+    </div>
+  </form>
+</div>

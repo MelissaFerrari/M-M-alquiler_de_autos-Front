@@ -41,6 +41,11 @@ estaDominioReservado(dominio: string) {
   return this.http.get<boolean>(`http://localhost:8080/dominio-reservado?dominio=${dominio}`);
 }
 
+modificarReserva(id: number, campo: string, nuevoValor: string): Observable<any> {
+  return this.http.patch(`http://localhost:8080/reservas/${id}`, {
+    [campo]: nuevoValor
+  });
+}
 
 
 
