@@ -62,5 +62,9 @@ eliminarAuto(dominio: string) {
 eliminarCliente(dni: string) {
   return this.http.delete(`http://localhost:8080/eliminarcliente?dni=${dni}`, { responseType: 'text' });
 }
+estaClienteReservado(dni: string): Observable<boolean> {
+  return this.http.get<boolean>(`http://localhost:8080/cliente-reservado?dni=${dni}`);
+}
+
 
 }
