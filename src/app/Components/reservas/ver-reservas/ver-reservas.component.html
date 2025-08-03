@@ -2,13 +2,18 @@
   <div class="row g-4">
     <div class="col-md-4" *ngFor="let reserva of reservas">
       <div class="reserva-card">
-        <div class="card-body">
+        <div class="card-body text-center">
           <h4 class="reserva-title fw-bold">Reserva {{ reserva.id }}</h4>
           <p class="mb-3"><strong>Dominio del auto:</strong> {{ reserva.auto.dominio }}</p>
           <p class="mb-3"><strong>DNI del cliente:</strong> {{ reserva.cliente.dni }}</p>
           <p class="mb-3"><strong>Nombre del Cliente:</strong> {{ reserva.cliente.nombreCompleto }}</p>
           <p class="mb-3"><strong>Desde:</strong> {{ reserva.fechaInicio }}</p>
           <p class="mb-3"><strong>Hasta:</strong> {{ reserva.fechaFin }}</p>
+
+          <!-- Mensaje si la reserva está vencida -->
+          <div *ngIf="reserva.vencida" class="text-danger fw-bold mt-3">
+            Reserva vencida
+          </div>
         </div>
       </div>
     </div>
