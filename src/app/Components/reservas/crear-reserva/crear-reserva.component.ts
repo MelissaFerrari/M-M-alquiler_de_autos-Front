@@ -74,43 +74,56 @@ export class CrearReservaComponent implements OnInit {
       this.mensajeError = 'La fecha de inicio debe ser anterior a la fecha de fin.';
       return;
     }
+
     if (inicio < hoy) {
       this.mensajeError = 'La fecha de inicio no puede ser anterior a la fecha actual.';
       return;
     }
 
     this.http.get<any[]>('http://localhost:8080/getreservas').subscribe(reservas => {
-      const conflicto = reservas.some(r =>
-        r.dominioAuto === this.dominioAuto.toUpperCase() &&
-        ((inicio >= new Date(r.fechaInicio) && inicio < new Date(r.fechaFin)) ||
-         (fin > new Date(r.fechaInicio) && fin <= new Date(r.fechaFin)) ||
-         (inicio <= new Date(r.fechaInicio) && fin >= new Date(r.fechaFin)))
-      );
+  const dominioIngresado = this.dominioAuto.toUpperCase();
+  let hayConflicto = false;
 
-      if (conflicto) {
-        this.mensajeError = 'Ya existe una reserva para este auto en las fechas indicadas.';
-        return;
+  for (let r of reservas) {
+    if (r.auto && r.auto.dominio && r.auto.dominio.toUpperCase() === dominioIngresado) {
+      const inicioExistente = new Date(r.fechaInicio);
+      const finExistente = new Date(r.fechaFin);
+
+      const seSolapan =
+        (inicio <= finExistente && fin >= inicioExistente);
+
+      if (seSolapan) {
+        hayConflicto = true;
+        break;
       }
+    }
+  }
 
-      const nuevaReserva = {
-        cliente: { dni: this.dniCliente },
-        auto: { dominio: this.dominioAuto.toUpperCase() },
-        fechaInicio: this.fechaInicio,
-        fechaFin: this.fechaFin
-      };
+  if (hayConflicto) {
+    this.mensajeError = 'Fechas no disponibles.';
+    return;
+  }
 
-      this.http.post('http://localhost:8080/agregarreserva', nuevaReserva).subscribe({
-        next: () => {
-          this.mensajeExito = 'Reserva registrada con éxito.';
-          setTimeout(() => {
-            this.router.navigate(['/home']);
-          }, 3000);
-        },
-        error: err => {
-          this.mensajeError = 'Error al guardar la reserva.';
-          console.error(err);
-        }
-      });
-    });
+  const nuevaReserva = {
+    cliente: { dni: this.dniCliente },
+    auto: { dominio: dominioIngresado },
+    fechaInicio: this.fechaInicio,
+    fechaFin: this.fechaFin
+  };
+
+  this.http.post('http://localhost:8080/agregarreserva', nuevaReserva).subscribe({
+    next: () => {
+      this.mensajeExito = 'Reserva registrada con éxito.';
+      setTimeout(() => {
+        this.router.navigate(['/home']);
+      }, 3000);
+    },
+    error: err => {
+      this.mensajeError = 'Error al guardar la reserva.';
+      console.error(err);
+    }
+  });
+});
+
   }
 }
