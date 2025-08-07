@@ -1,5 +1,12 @@
 <div class="autos-container">
-  <div class="autos-row">
+
+  <!-- Mensaje si no hay autos -->
+  <div *ngIf="sinAutos" class="mensaje-no-autos">
+    <p>No hay autos registrados.</p>
+  </div>
+
+  <!-- Lista de autos -->
+  <div class="autos-row" *ngIf="!sinAutos">
     <div class="auto-col" *ngFor="let auto of autos">
       <div class="auto-card">
         <div class="auto-card-body">

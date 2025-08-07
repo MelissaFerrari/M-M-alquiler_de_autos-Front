@@ -14,3 +14,9 @@
 .card-body {
   padding: 1.2rem;
 }
+
+.mensaje-no-reservas {
+  font-size: 18px;
+  margin-top: 50px;
+  color: #555;
+}

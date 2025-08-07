@@ -1,5 +1,12 @@
 <div class="container py-4">
-  <div class="row g-4">
+
+  <!-- Mensaje si no hay reservas -->
+  <div *ngIf="sinReservas" class="mensaje-no-reservas text-center">
+    <p>No hay reservas registradas.</p>  
+  </div>
+
+  <!-- Lista de reservas -->
+  <div class="row g-4" *ngIf="!sinReservas">
     <div class="col-md-4" *ngFor="let reserva of reservas">
       <div class="reserva-card">
         <div class="card-body text-center">

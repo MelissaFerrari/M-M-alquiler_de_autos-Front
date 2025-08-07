@@ -1,5 +1,12 @@
 <div class="clientes-container">
-  <div class="clientes-row">
+
+  <!-- Mensaje si no hay clientes -->
+  <div *ngIf="sinClientes" class="mensaje-no-clientes">
+    <p>No hay clientes registrados.</p>
+  </div>
+
+  <!-- Lista de clientes -->
+  <div class="clientes-row" *ngIf="!sinClientes">
     <div class="cliente-col" *ngFor="let cliente of clientes">
       <div class="cliente-card">
         <div class="cliente-card-body">
